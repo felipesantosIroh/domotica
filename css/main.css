@@ -15,6 +15,23 @@ main{
     position: relative;
 }
 
+.acessar_login ul li{
+    display: inline;
+}
+
+.acessar_login{
+    width: 140px;
+    float: right;
+}
+
 .logo{
     padding: 5px;
+}
+
+.textbv{
+    color: #6699ff;
+    position: relative;
+    display: inline;
+    left: 15px;
+    bottom: 30px;
 }
