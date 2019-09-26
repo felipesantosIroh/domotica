@@ -24,6 +24,12 @@ main{
     float: right;
 }
 
+.functions ul li{
+    display: inline-block;
+    list-style: none;
+    float: left;
+}
+
 .logo{
     padding: 5px;
 }
