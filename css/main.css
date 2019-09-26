@@ -25,9 +25,14 @@ main{
 }
 
 .functions ul li{
+    margin-left: 50px;
     display: inline-block;
     list-style: none;
     float: left;
+}
+
+.functions{
+    margin-inline-start: 20%;
 }
 
 .logo{
