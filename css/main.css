@@ -1,12 +1,13 @@
 body{
-    width: 100%;
-    height: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .cabecalho{
     width: 100%;
     height: 90px; 
     background-color: black;
+    border-bottom: 5px solid cadetblue;
 }
 
 main{
@@ -24,15 +25,25 @@ main{
     float: right;
 }
 
-.functions ul li{
-    margin-left: 50px;
-    display: inline-block;
-    list-style: none;
-    float: left;
+.main_image{
+    position: relative;
+    width: 100px;
+    height: 50px;
+    
 }
 
 .functions{
-    margin-inline-start: 20%;
+    width: 15%;
+    float: left;
+    list-style: none;
+    margin: 0;
+        
+}
+
+.functions ul li{
+    padding: 15px;
+    position: relative;
+    background-color: #6699ff;
 }
 
 .logo{
