@@ -2,9 +2,18 @@
     <head>
         <link rel="stylesheet" type="text/css" href="./css/main.css">
         <title>Dom&oacute;tica com Arduino</title>
+        <script src="http://<uri:port>/socket.io/socket.io.js"></script>
     </head>
 
     <body>
+
+        <script type="text/javascript">
+            var socket = io();
+            socket.on("dadoArduino", function(dado){
+                console.log(dado);
+            });    
+        </script>
+
         <header class="menu_principal">
             <main>
                 <div class="cabecalho">
