@@ -3,9 +3,9 @@
 
 #include "DHT.h"
 
-#define DHTPIN 2     // Onde o pino é conectado
-#define DHTTYPE DHT22   // DHT 22  (AM2302)
-#define fan 4
+#define DHTPIN 2      //Pino onde o sensor é conectado
+#define DHTTYPE DHT22   //DHT 22  (AM2302)
+#define fan 4         //Pino do ventilador
 
 int maxUm = 60;
 int maxTemp = 40;
@@ -24,9 +24,9 @@ void loop() {
 
   // Lendo temperaturas ou umidade por volta de 20 milisegundos
   // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
-  float u = dht.readHumidity();
+  int u = dht.readHumidity();
   // Ler a temperatura em Celsius
-  float t = dht.readTemperature();
+  int t = dht.readTemperature();
   
   // Verfifica e indica erro de not a number na leitura e tenta novamente
   if (isnan(u) || isnan(t)) {
@@ -35,16 +35,16 @@ void loop() {
   }
   
   if(u > maxUm || t > maxTemp) {
-      digitalWrite(fan, HIGH);
+      //digitalWrite(fan, HIGH); //liga ventilador
   } else {
-     digitalWrite(fan, LOW); 
+     //digitalWrite(fan, LOW); //desliga ventilador
   }
   
-//  Serial.print("Umidity: "); 
-  Serial.print(u);
+//  Serial.print("Umidade: "); 
+  Serial.println(u);
 //  Serial.print(" %\t");
 //  Serial.print("Temperatura: "); 
-  Serial.print(t);
+//  Serial.println(t);
 //  Serial.println(" *C ");
 
 }

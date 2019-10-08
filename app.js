@@ -1,47 +1,40 @@
-var app = require("express")();
-var express = require("express");
+//Bibliotecas
+const SerialPort = require('serialport');
+const express = require('express');
+const socketIo = require('socket.io');
+const http = require('http');
 
-app.use(express.static(__dirname + '/public'));
+//Server
+const app = express();
+const server = http.createServer(app);
 
-var http = require("http").Server(app);
-var io = require("socket.io")(http);
+app.use(express.static('public')); //Adiciona os arquivos estaticos
 
-app.get("/", function(req, res){
-    res.sendfile("index.html");
+app.get('/' , (req, res, next) =>{
+    res.sendFile(__dirname + '/public/index.html')
 });
 
-var mySocket;
+server.listen(3000, () => {
+    console.log('Porta 10.34.139.149:%d', server.address().port);
+});
 
-var serialport = require("serialport");
-var portName = "COM6";
+const io = socketIo.listen(server);
 
-var myPort = new serialport(portName, {
+//Configuração de serial
+const Readline = SerialPort.parsers.Readline;
+const parser = new Readline({delimiter: '\r\n'});
+const mySerial = new SerialPort("COM6", {
     baudRate: 9600,
-    parser: new serialport.parsers.Readline('\n')
 });
 
-myPort.on('open', onOpen);
-myPort.on('data', onData);
-myPort.on('error', function (err) {
-    console.log('Mensagem de erro: ', err.message);
-})
+mySerial.pipe(parser);
 
-
-function onOpen() {
-    console.log('Porta Aberta! Para interromper aplicativo clique em CTRL+ C');
-}
-
-function onData(data) {
-    console.log('Dado recebido: ' + data);
-    io.emit("dadoArduino", {
-        valor: data
+mySerial.on('open', function(){
+    console.log("Conexão iniciada");
+    parser.on('data', function (data){
+        console.log(data);
+        io.emit('serial:data', {
+            value: data.toString()
+        });
     });
-}
-
-io.on("connection", function(socket){
-    console.log("Usuario on!")
-});
-
-http.listen(3000, function(){
-    console.log("Rodando!")
 });

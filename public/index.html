@@ -1,35 +1,28 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="./css/main.css">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
         <title>Dom&oacute;tica com Arduino</title>
-        <script src="http://<uri:port>/socket.io/socket.io.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
     </head>
 
     <body>
-
-        <script type="text/javascript">
-            var socket = io();
-            socket.on("dadoArduino", function(dado){
-                console.log(dado);
-            });    
-        </script>
-
         <header class="menu_principal">
             <main>
                 <div class="cabecalho">
                     <!--Onde fica a logo do site/empresa -->            
                     <div class="logo">
-                        <img src="./img/smart-houses.jpg" width="80" height="80" />
+                        <img src="../img/smart-houses.jpg" width="80" height="80" />
 
                         <h1 class="textbv"><font font size="6" face="Times">Dom&oacute;tica com Arduino</font></h1>
  
                         <!--Onde fica o botão de login-->
                         <div class="acessar_login">
-                            <ul><li><a href=""><img src="./img/button_login.png" width="80" height="45"/></a></li></ul>
+                            <ul><li><a href=""><img src="../img/button_login.png" width="80" height="45"/></a></li></ul>
                         </div>
                     </div>
                 </div>
-
+                
                 <!--Botôes das principais funcionalidades-->
                 <div class="functions">
                     <ul>
@@ -58,7 +51,15 @@
                         <a href="">Contatos</a>
                     </li></ul>
                 </div>
+                
+                <!-- Grafico para demonstração -->
+                <div class="monitoramentos">
+                        <canvas id="utGrafico" height="50"></canvas>
+                </div>
             </main>
         </header>
     </body>
+
+    <script src="grafico.js"></script>
+
 </html>
