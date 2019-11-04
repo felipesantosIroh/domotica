@@ -24,14 +24,18 @@ var myChart = new Chart(ctx, {
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
+            ]
+        },  {   
+            label: 'Temperatura',
+            fill: false,
+            data: [],
+            backgroundColor: [
+                'rgba(0,0,255,0.3)'
             ],
-            borderWidth: 2
-        },  {
-        label: 'Temperatura',
-        fill: false,
-        backgroundColor:
-        },
-    }]
+            borderColor: [
+                'rgba(0,0,255,1)'
+            ]
+        }]
 },
     options: {
         scales: {
