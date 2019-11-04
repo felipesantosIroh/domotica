@@ -1,0 +1,25 @@
+{
+  "name": "domotica",
+  "version": "1.0.0",
+  "description": "Automação residencial de baixo custo",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "serialport": "^7.1.5",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipesilvaPW/domotica.git"
+  },
+  "author": "Felipe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felipesilvaPW/domotica/issues"
+  },
+  "homepage": "https://github.com/felipesilvaPW/domotica#readme"
+}
