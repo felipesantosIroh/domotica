@@ -14,9 +14,10 @@ var ctx = document.getElementById('utGrafico').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['Segundos'],
+        label:'Segundos',
         datasets: [{
-            label: 'Umidade do ar',
+            label: 'Umidade',
+            fill: false,
             data: [],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -24,9 +25,14 @@ var myChart = new Chart(ctx, {
             borderColor: [
                 'rgba(255, 99, 132, 1)',
             ],
-            borderWidth: 1
-        }]
-    },
+            borderWidth: 2
+        },  {
+        label: 'Temperatura',
+        fill: false,
+        backgroundColor:
+        },
+    }]
+},
     options: {
         scales: {
             yAxes: [{
