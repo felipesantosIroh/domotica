@@ -1,5 +1,6 @@
 const socket = io();
 let counter = 2;
+
 socket.on('serial:data', function(dataSerial){
     console.log(dataSerial);
     myChart.data.labels.push(counter);
@@ -15,17 +16,7 @@ var myChart = new Chart(ctx, {
     type: 'line',
     data: {
         label:'Segundos',
-        datasets: [{
-            label: 'Umidade',
-            fill: false,
-            data: [],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-            ]
-        },  {   
+        datasets: [{   
             label: 'Temperatura',
             fill: false,
             data: [],

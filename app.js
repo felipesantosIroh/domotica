@@ -35,21 +35,19 @@ mySerial.on('open', function(){
     parser.on('data', function (data){
         console.log(data);
         io.emit('serial:data', {
-            value: data.toString(),
             value: data.toString()
         });
     });
 });
-/*
+
 //recebendo dados da web e passando para a serial
 io.sockets.on('connection', function(socket){
     console.log('Um novo no foi conectado');
 
-    socket.on()('btnAction', function(btn){
+    socket.on('btnAction', function(btn){
         var dado_web = btn.value;
         console.log(dado_web);
         mySerial.write(dado_web);
         console.log('Enviando " ' + dado_web + ' " para serial');
     });
 });
-*/
