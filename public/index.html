@@ -1,14 +1,75 @@
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="./css/main.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <title>Dom&oacute;tica com Arduino</title>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+
    </head>
 
     <body>
+        <div class="wrapper">
+                <div>
+                    
+                </div>
+                <!-- Sidebar -->
+                <nav id="sidebar">
+                    <div class="sidebar-header">
+                        <h3>Automacao Residencial</h3>
+                    </div>
+            
+                    <ul class="list-unstyled components">
+                        <p>Menu</p>
+                        <li class="active">
+                            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Luzes</a>
+                            <ul class="collapse list-unstyled" id="homeSubmenu">
+                                <li>
+                                    <button id="luzSala" class="btn btn-primary" value="a">Luz da Sala</button>
+                                </li>
+                                <li>
+                                    <button id="luzQuarto" class="btn btn-primary" value="b">Luz do Quarto</button>
+                                </li>
+                                <li>
+                                    <button id="luzCozinha" class="btn btn-primary" value="c">Luz da Cozinha</button>
+                                </li>
+                                <li>
+                                    <button id="luzGaragem" class="btn btn-primary" value="d">Luz do Garagem</button>
+                                </li>
+                                <li>
+                                    <button id="luzBanheiro" class="btn btn-primary" value="e">Luz do Banheiro</button>
+                                </li>
+                                <li>
+                                    <button id="luzCorredor" class="btn btn-primary" value="f">Luz do Corredor</button>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Sobre</a>
+                        </li>
+                        <li>
+                            <a href="#">Contactos</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Page Content -->
+                <div id="content">
+                        <!-- We'll fill this with dummy content -->
+                        <canvas id="utGrafico" height="450" width="500"></canvas>
+                    </div>
+            
+            </div>
+    </body>
+
+    <script src="grafico.js"></script>
+    <script src="btn.js"></script>
+
+</html>
+
+<!--
         <div class="jumbotron">
             <h1 class="display-4">Automacao Residencial com Arduino</h1>
             <p class="lead">Prot&oacute;tipo de automacao residencia de baixo custo com Arduino</p>
@@ -32,9 +93,12 @@
             </div>
 
         </div>
-    </body>
 
-    <script src="grafico.js"></script>
-    <script src="btn.js"></script>
 
-</html>
+
+        color: #D9B310;
+        #328CC1;
+        #0B3C5D;
+        #1D2739;
+
+-->
