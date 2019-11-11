@@ -11,57 +11,23 @@
    </head>
 
     <body>
-        <div class="wrapper">
-                <div>
-                    
-                </div>
-                <!-- Sidebar -->
-                <nav id="sidebar">
-                    <div class="sidebar-header">
-                        <h3>Automacao Residencial</h3>
-                    </div>
-            
-                    <ul class="list-unstyled components">
-                        <p>Menu</p>
-                        <li class="active">
-                            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Luzes</a>
-                            <ul class="collapse list-unstyled" id="homeSubmenu">
-                                <li>
-                                    <button id="luzSala" class="btn btn-primary" value="a">Luz da Sala</button>
-                                </li>
-                                <li>
-                                    <button id="luzQuarto" class="btn btn-primary" value="b">Luz do Quarto</button>
-                                </li>
-                                <li>
-                                    <button id="luzCozinha" class="btn btn-primary" value="c">Luz da Cozinha</button>
-                                </li>
-                                <li>
-                                    <button id="luzGaragem" class="btn btn-primary" value="d">Luz do Garagem</button>
-                                </li>
-                                <li>
-                                    <button id="luzBanheiro" class="btn btn-primary" value="e">Luz do Banheiro</button>
-                                </li>
-                                <li>
-                                    <button id="luzCorredor" class="btn btn-primary" value="f">Luz do Corredor</button>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Sobre</a>
-                        </li>
-                        <li>
-                            <a href="#">Contactos</a>
-                        </li>
-                    </ul>
-                </nav>
-
-                <!-- Page Content -->
-                <div id="content">
-                        <!-- We'll fill this with dummy content -->
-                        <canvas id="utGrafico" height="450" width="500"></canvas>
-                    </div>
-            
+        <nav id="topnav" class="navbar navbar-dark" style="background-color: #0B3C5D;">
+            <span class="navbar-brand mb-0 h1">Navbar</span>                
+        </nav>
+        
+        <div id="menu">
+            <!-- Sidebar -->
+            <div class="sidenav">
+                <a href="index.html">Principal</a>
+                <a href="luzes.html">Luzes</a>
+                <a href="graficos.html">Graficos</a>
+                <a href="about.html">About</a>
             </div>
+        </div>
+        <!-- Page Content -->
+        <div class="main">
+
+        </div>
     </body>
 
     <script src="grafico.js"></script>
