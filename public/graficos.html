@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./css/main.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <title>Dom&oacute;tica com Arduino</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+
+   </head>
+
+    <body>
+        <nav class="navbar navbar-dark" style="background-color: #0B3C5D;">
+            <span class="navbar-brand mb-0 h1">Navbar</span>                
+        </nav>
+        
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <div class="sidenav">
+                    <a href="index.html">Principal</a>
+                    <a href="luzes.html">Luzes</a>
+                    <a href="graficos.html">Graficos</a>
+                    <a href="about.html">About</a>
+                </div>
+
+            <!-- Page Content -->
+            <div class="main">
+                <canvas id="utGrafico" height="450" width="500"></canvas>
+            </div>
+        </div>
+    </body>
+
+    <script src="grafico.js"></script>
+
+</html>
