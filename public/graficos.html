@@ -11,8 +11,8 @@
    </head>
 
     <body>
-        <nav class="navbar navbar-dark" style="background-color: #0B3C5D;">
-            <span class="navbar-brand mb-0 h1">Navbar</span>                
+        <nav id="topnav" class="navbar navbar-dark" style="background-color: #0B3C5D;">
+            <span id="textNav" class="navbar-text">Casal Inteligente</span>                
         </nav>
         
         <div class="wrapper">
@@ -25,8 +25,17 @@
                 </div>
 
             <!-- Page Content -->
-            <div class="main">
-                <canvas id="utGrafico" height="450" width="500"></canvas>
+            <div class="container">
+                    <div class="col-md-12"></div>
+                    <div class="titulo"><h3>Sensores de Umidade e Temperatura</h3></div>
+                    <div class="opDiv1">
+                        <h5>DHT11</h5>
+                        <canvas id="utGrafico"></canvas>
+                    </div>
+                    <div class="opDiv2">
+                        <h5>DHT22</h5>
+                        <canvas id="utGrafico2"></canvas>
+                    </div>
             </div>
         </div>
     </body>

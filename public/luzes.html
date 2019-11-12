@@ -11,8 +11,8 @@
    </head>
 
     <body>
-        <nav class="navbar navbar-dark" style="background-color: #0B3C5D;">
-            <span class="navbar-brand mb-0 h1">Navbar</span>                
+        <nav id="topnav" class="navbar navbar-dark" style="background-color: #0B3C5D;">
+            <span id="textNav" class="navbar-text">Casal Inteligente</span>                
         </nav>
         
         <div class="wrapper">
@@ -25,9 +25,15 @@
                 </div>
 
             <!-- Page Content -->
-            <div class="main">
-                    <p>Sistema de automação residencial utilizando Arduino Uno e um computador como central, que poderá ser acessado remotamente pela internet através de um smartphone com sistema operacional Android. O sistema residencial será capaz de controlar iluminação, de visualizar a transmissão de câmeras de segurança e outros processos comuns em uma residência.</p>
+            <div class="btn-group" role="group" aria-label="Exemplo básico">
+                <button id="luzSala" class="btn btn-danger" value="a">Luz da Sala</button>
+                <button id="luzQuarto" class="btn btn-danger" value="b">Luz do Quarto</button>
+                <button id="luzCozinha" class="btn btn-danger" value="c">Luz da Cozinha</button>
+                <button id="luzGaragem" class="btn btn-danger" value="d">Luz do Garagem</button>
+                <button id="luzBanheiro" class="btn btn-danger" value="e">Luz do Banheiro</button>
+                <button id="luzCorredor" class="btn btn-danger" value="f">Luz do Corredor</button>
             </div>
         </div>
     </body>
+    <script src="btn.js"></script>
 </html>
