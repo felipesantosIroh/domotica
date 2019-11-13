@@ -44,7 +44,7 @@
   margin-left: 160px; /* Same as the width of the sidebar */
   padding: 0px 10px;
   height: 100%;
-  background: -webkit-linear-gradient(top, #8cdff1 20%, #00d5ff 100%);
+  background: -webkit-linear-gradient(top, #8cdff1 20%, #36c7c7 100%);
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
@@ -54,7 +54,7 @@
 }
 
 div.titulo {
-  background-color:#328CC1;
+  background-color:#1D2739;
   text-align: center;
   color: #D9B310;
 }
@@ -90,4 +90,30 @@ div.opDiv2 {
 
 .btn-group {
   padding-left: 20%;
+}
+
+#about {
+  font-size: 18;
+}
+
+.footer {
+  position:absolute;
+  bottom:0;
+}
+
+#luzesWall img {
+  padding-left: 10%;
+  max-width:1080px;
+  max-height:768px;
+  width: auto;
+  height: auto;
+}
+
+#quadroVideo {
+  height: 455px;
+  width: 455px;
+  background-color: rgb(104, 139, 139);
+  border-width: 10px;
+  border-style: groove;
+  border-color: rgb(23, 65, 156);
 }

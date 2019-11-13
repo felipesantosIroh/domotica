@@ -5,10 +5,10 @@
     call.emit('btnAction', {
         value: button.toString()
     });
-    if ($(this).hasClass("btn-danger"))
-        $(this).addClass("btn-success").removeClass("btn-danger");
+    if ($(this).hasClass("btn-warning"))
+        $(this).addClass("btn-success").removeClass("btn-warning");
     else
-        $(this).addClass("btn-danger").removeClass("btn-success");
+        $(this).addClass("btn-warning").removeClass("btn-success");
  });
 
  $("#luzQuarto").click(function(){
@@ -18,10 +18,10 @@
     call.emit('btnAction', {
         value: button.toString()
     });
-    if ($(this).hasClass("btn-danger"))
-        $(this).addClass("btn-success").removeClass("btn-danger");
+    if ($(this).hasClass("btn-warning"))
+        $(this).addClass("btn-success").removeClass("btn-warning");
     else
-        $(this).addClass("btn-danger").removeClass("btn-success");    
+        $(this).addClass("btn-warning").removeClass("btn-success");    
  });
 
  $("#luzCozinha").click(function(){
@@ -31,10 +31,10 @@
     call.emit('btnAction', {
         value: button.toString()
     });
-    if ($(this).hasClass("btn-danger"))
-        $(this).addClass("btn-success").removeClass("btn-danger");
+    if ($(this).hasClass("btn-warning"))
+        $(this).addClass("btn-success").removeClass("btn-warning");
     else
-        $(this).addClass("btn-danger").removeClass("btn-success");    
+        $(this).addClass("btn-warning").removeClass("btn-success");    
  });
 
  $("#luzGaragem").click(function(){
@@ -44,10 +44,10 @@
     call.emit('btnAction', {
         value: button.toString()
     });
-    if ($(this).hasClass("btn-danger"))
-        $(this).addClass("btn-success").removeClass("btn-danger");
+    if ($(this).hasClass("btn-warning"))
+        $(this).addClass("btn-success").removeClass("btn-warning");
     else
-        $(this).addClass("btn-danger").removeClass("btn-success");
+        $(this).addClass("btn-warning").removeClass("btn-success");
  });
 
  $("#luzBanheiro").click(function(){
@@ -57,10 +57,10 @@
     call.emit('btnAction', {
         value: button.toString()
     });
-    if ($(this).hasClass("btn-danger"))
-        $(this).addClass("btn-success").removeClass("btn-danger");
+    if ($(this).hasClass("btn-warning"))
+        $(this).addClass("btn-success").removeClass("btn-warning");
     else
-        $(this).addClass("btn-danger").removeClass("btn-success");
+        $(this).addClass("btn-warning").removeClass("btn-success");
  });
 
  $("#luzCorredor").click(function(){
@@ -70,8 +70,8 @@
     call.emit('btnAction', {
         value: button.toString()
     });
-    if ($(this).hasClass("btn-danger"))
-        $(this).addClass("btn-success").removeClass("btn-danger");
+    if ($(this).hasClass("btn-warning"))
+        $(this).addClass("btn-success").removeClass("btn-warning");
     else
-        $(this).addClass("btn-danger").removeClass("btn-success");
+        $(this).addClass("btn-warning").removeClass("btn-success");
  });
