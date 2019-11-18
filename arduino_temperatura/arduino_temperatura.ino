@@ -3,15 +3,16 @@
 
 #include "DHT.h"
 
-#define DHTPIN 2      //Pino do Primeiro sensor DHT
-#define DHTPIN2 3     //Pino do Segundo sensor  DHT
-#define DHTTYPE DHT22   //DHT 22  (AM2302)
-#define DHTTYPE2 DHT11  //DHT 11
-#define buzzer 1       //Pino do buzzer
-#define luzSala 8     //Pino do led da Sala
-#define luzQuarto 9     //Pino do led do Quarto
-#define luzCozinha 10    //Pino do led da Cozinha
-#define luzGaragem 11    //Pino do led da Garagem
+#define buzzer 1          //Pino do buzzer
+#define DHTPIN 2          //Pino do Primeiro sensor DHT
+#define DHTPIN2 3         //Pino do Segundo sensor  DHT
+#define DHTTYPE DHT22     //DHT 22  (AM2302)
+#define DHTTYPE2 DHT11    //DHT 11
+#define PIR 4             //Pino do sensor PIR     
+#define luzSala 8         //Pino do led da Sala
+#define luzQuarto 9       //Pino do led do Quarto
+#define luzCozinha 10     //Pino do led da Cozinha
+#define luzGaragem 11     //Pino do led da Garagem
 #define luzBanheiro 12    //Pino do led do Banheiro
 #define luzCorredor 13    //Pino do led do Corredor
 
@@ -32,7 +33,7 @@ char c = 0;
 char d = 0;
 char e = 0;
 char f = 0;
-
+int valorSensorPIR = 0;
 
 DHT dht(DHTPIN, DHTTYPE);
 DHT dht2(DHTPIN2, DHTTYPE2);
@@ -45,6 +46,7 @@ void setup() {
   pinMode(luzGaragem, OUTPUT);
   pinMode(luzBanheiro, OUTPUT);
   pinMode(luzCorredor, OUTPUT);
+  pinMode(PIR, INPUT);
   Serial.begin(9600); 
   dht.begin();
   dht2.begin();
@@ -63,6 +65,17 @@ void loop() {
   // Ler a temperatura em Celsius
   int t2 = dht2.readTemperature();
 
+  valorSensorPIR = digitalRead(PIR);
+   
+  Serial.print("Valor do Sensor PIR: ");  
+  Serial.println(valorSensorPIR);
+   
+  //Verificando se ocorreu detecção de movimentos
+  if (valorSensorPIR == 1) {
+    ligarAlarme();
+  } else {
+    desligarAlarme();
+  } 
 /*
   //grava nas variaveis passadas a temperatura para calcular taxa
   if(contador == 30){ //se o tempo for 0 então guarda as infomações
@@ -190,8 +203,8 @@ void loop() {
 void ligarAlarme() {   
   //Ligando o buzzer com uma frequencia de 1500 hz.
   tone(buzzer,1500);
-   
-  delay(4000); //tempo que o buzzer toca
+  digitalWrite(luzGaragem, HIGH); 
+  delay(2000); //tempo que o buzzer toca
    
   desligarAlarme();
 }
@@ -199,4 +212,5 @@ void ligarAlarme() {
 void desligarAlarme() {
   //Desligando o buzzer
   noTone(buzzer);
+  digitalWrite(luzGaragem, LOW);
 }
