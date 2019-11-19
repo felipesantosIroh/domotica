@@ -61,3 +61,39 @@
 			window.myLine = new Chart(ctx, config);
 		};
 	
+
+__________-------------_________ARDUINO________------------____________________
+
+/* 
+  if((u > maxUm || t > maxTemp) || (variacaoTemp > 8 || variacaoUmi > 5)) {
+     ligarAlarme();
+  } else {
+    desligarAlarme();
+  }
+
+  if((u2 > maxUm || t2 > maxTemp) || (variacaoTemp2 > 8 || variacaoUmi2 > 5)) {
+     ligarAlarme();
+  } else {
+     desligarAlarme();
+  }
+*/  
+
+
+/*
+  //grava nas variaveis passadas a temperatura para calcular taxa
+  if(contador == 30){ //se o tempo for 0 então guarda as infomações
+    passTemp = t;
+    passUmi = u;
+    passTemp2 = t2;
+    passUmi2 = u2;
+    contador = 0;
+  } else if(contador == 0){ //se o tempo for =! de 0 então calcula taxa
+    variacaoTemp =  t - passTemp;
+    variacaoUmi =  u - passUmi;
+    variacaoTemp2 =  t2 - passTemp2;
+    variacaoUmi2 =  u2 - passUmi2;
+    contador = contador + 1;
+  } else{
+    contador = contador + 1;
+  }
+*/  

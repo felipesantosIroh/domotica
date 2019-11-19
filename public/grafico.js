@@ -1,11 +1,19 @@
 const socket = io();
 let counter = 2;
+let counter2 = 2;
+var arr;
+var keep;
 
 socket.on('serial:data', function(dataSerial){
     console.log(dataSerial);
     myChart.data.labels.push(counter);
     myChart.data.datasets.forEach(dataset => {
-        dataset.data.push(dataSerial.value);
+        arr = dataSerial.value.split(" ");
+        console.log(arr);
+        arr[0] = arr[0].substring(1);
+        keep = arr[0];
+        console.log(keep);
+        dataset.data.push(keep);
     });
     counter = counter + 2;
     myChart.update();
@@ -13,11 +21,16 @@ socket.on('serial:data', function(dataSerial){
 
 socket.on('serial:data', function(dataSerial){
     console.log(dataSerial);
-    myChart.data.labels.push(counter);
-    myChart.data.datasets.forEach(dataset => {
-        dataset.data.push(dataSerial.value);
+    myChart2.data.labels.push(counter2);
+    myChart2.data.datasets.forEach(dataset => {
+        arr = dataSerial.value.split(" ");
+        console.log(arr);
+        keep = arr[1];
+        console.log(keep);
+        dataset.data.push(keep);
+        //dataset.data.push(dataSerial.value);
     });
-    counter = counter + 2;
+    counter2 = counter2 + 2;
     myChart2.update();
 });
 

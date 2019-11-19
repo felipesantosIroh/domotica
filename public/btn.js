@@ -1,11 +1,35 @@
- $("#luzSala").click(function(){
+const socket = io();
+var arr;
+var a;
+var b;
+var c;
+var d;
+var e;
+var f;
+
+socket.on('serial:data', function(dataSerial){
+    console.log(dataSerial);
+    arr = dataSerial.value.split(" ");
+        console.log(arr);
+        a = arr[3];
+        b = arr[4];
+        c = arr[5];
+        d = arr[6];
+        e = arr[7];
+        f = arr[8];
+});
+
+
+
+
+$("#luzSala").click(function(){
     const call = io();
     var button = $(this).val();
     console.log(button);
     call.emit('btnAction', {
         value: button.toString()
     });
-    if ($(this).hasClass("btn-warning"))
+    if (a == 0)
         $(this).addClass("btn-success").removeClass("btn-warning");
     else
         $(this).addClass("btn-warning").removeClass("btn-success");
@@ -18,7 +42,7 @@
     call.emit('btnAction', {
         value: button.toString()
     });
-    if ($(this).hasClass("btn-warning"))
+    if (b == 0)
         $(this).addClass("btn-success").removeClass("btn-warning");
     else
         $(this).addClass("btn-warning").removeClass("btn-success");    
@@ -31,7 +55,7 @@
     call.emit('btnAction', {
         value: button.toString()
     });
-    if ($(this).hasClass("btn-warning"))
+    if (c == 0)
         $(this).addClass("btn-success").removeClass("btn-warning");
     else
         $(this).addClass("btn-warning").removeClass("btn-success");    
@@ -44,7 +68,7 @@
     call.emit('btnAction', {
         value: button.toString()
     });
-    if ($(this).hasClass("btn-warning"))
+    if (d == 0)
         $(this).addClass("btn-success").removeClass("btn-warning");
     else
         $(this).addClass("btn-warning").removeClass("btn-success");
@@ -57,7 +81,7 @@
     call.emit('btnAction', {
         value: button.toString()
     });
-    if ($(this).hasClass("btn-warning"))
+    if (e == 0)
         $(this).addClass("btn-success").removeClass("btn-warning");
     else
         $(this).addClass("btn-warning").removeClass("btn-success");
@@ -70,7 +94,7 @@
     call.emit('btnAction', {
         value: button.toString()
     });
-    if ($(this).hasClass("btn-warning"))
+    if (f == 0)
         $(this).addClass("btn-success").removeClass("btn-warning");
     else
         $(this).addClass("btn-warning").removeClass("btn-success");

@@ -1,9 +1,7 @@
-//Teste de equipamentos disponiveis no momento
-
-
+#include <stdio.h>
 #include "DHT.h"
 
-#define buzzer 1          //Pino do buzzer
+#define buzzer 5          //Pino do buzzer
 #define DHTPIN 2          //Pino do Primeiro sensor DHT
 #define DHTPIN2 3         //Pino do Segundo sensor  DHT
 #define DHTTYPE DHT22     //DHT 22  (AM2302)
@@ -16,23 +14,13 @@
 #define luzBanheiro 12    //Pino do led do Banheiro
 #define luzCorredor 13    //Pino do led do Corredor
 
-int contador = 0; //contador a cada dois segundos
-int maxUm = 60;
-int maxTemp = 56;
-int passTemp = 0;
-int passUmi = 0;
-int passTemp2 = 0;
-int passUmi2 = 0;
-int variacaoTemp = 0;
-int variacaoUmi = 0;
-int variacaoTemp2 = 0;
-int variacaoUmi2 = 0;
-char a = 0;
-char b = 0;
-char c = 0;
-char d = 0;
-char e = 0;
-char f = 0;
+int i = 0;
+int a = 0;
+int b = 0;
+int c = 0;
+int d = 0;
+int e = 0;
+int f = 0;
 int valorSensorPIR = 0;
 
 DHT dht(DHTPIN, DHTTYPE);
@@ -66,34 +54,13 @@ void loop() {
   int t2 = dht2.readTemperature();
 
   valorSensorPIR = digitalRead(PIR);
-   
-  Serial.print("Valor do Sensor PIR: ");  
-  Serial.println(valorSensorPIR);
-   
   //Verificando se ocorreu detecção de movimentos
   if (valorSensorPIR == 1) {
     ligarAlarme();
   } else {
     desligarAlarme();
-  } 
-/*
-  //grava nas variaveis passadas a temperatura para calcular taxa
-  if(contador == 30){ //se o tempo for 0 então guarda as infomações
-    passTemp = t;
-    passUmi = u;
-    passTemp2 = t2;
-    passUmi2 = u2;
-    contador = 0;
-  } else if(contador == 0){ //se o tempo for =! de 0 então calcula taxa
-    variacaoTemp =  t - passTemp;
-    variacaoUmi =  u - passUmi;
-    variacaoTemp2 =  t2 - passTemp2;
-    variacaoUmi2 =  u2 - passUmi2;
-    contador = contador + 1;
-  } else{
-    contador = contador + 1;
   }
-*/  
+
   // Verfifica e indica erro de not a number na leitura e tenta novamente
   if (isnan(u) || isnan(t)) {
     Serial.println("E!");
@@ -104,25 +71,6 @@ void loop() {
     Serial.println("E!");
     return;
   }  
-
-/* 
-  if((u > maxUm || t > maxTemp) || (variacaoTemp > 8 || variacaoUmi > 5)) {
-     ligarAlarme();
-  } else {
-    desligarAlarme();
-  }
-
-  if((u2 > maxUm || t2 > maxTemp) || (variacaoTemp2 > 8 || variacaoUmi2 > 5)) {
-     ligarAlarme();
-  } else {
-     desligarAlarme();
-  }
-*/  
-
-//  Serial.println(u); 
-  Serial.println(t);
-//  Serial.println(u2);
-  Serial.println(t2);
 
   //lendo da serial, caso tenha algum dado recebendo
   if (Serial.available()){
@@ -196,14 +144,23 @@ void loop() {
           f = 0;
           break;
         }
+
+       case 'p': //Ligar alarme sonoro
+          ligarAlarme();
+
     }
   }
+
+    char buffer [50];
+     //Temperatura dht22 || temperatura dht11 || PIR || SALA || QUARTO || COZINHA || GARAGEM || BANHEIRO || CORREDOR                       
+     i=sprintf (buffer, "%d %d %d %d %d %d %d %d %d\n", t, t2, valorSensorPIR, a, b, c, d, e, f);
+    for(int l= 0; l<=i; l++)
+    Serial.print(buffer[l]);
 }
 
 void ligarAlarme() {   
   //Ligando o buzzer com uma frequencia de 1500 hz.
-  tone(buzzer,1500);
-  digitalWrite(luzGaragem, HIGH); 
+  tone(buzzer,1500); 
   delay(2000); //tempo que o buzzer toca
    
   desligarAlarme();
@@ -212,5 +169,4 @@ void ligarAlarme() {
 void desligarAlarme() {
   //Desligando o buzzer
   noTone(buzzer);
-  digitalWrite(luzGaragem, LOW);
 }
