@@ -31,7 +31,7 @@ socketzinho.on('serial:data', function(dataSerial){
     }
 
     contador = contador + 2;
-
+    const call = io();
     if(tempDHT22 > 54 || tempDHT11 > 54){
         alert("Temperatura muito alta, risco de incendio!");
         $('.alert').alert()
