@@ -23,7 +23,7 @@ const io = socketIo.listen(server);
 //Configuração de serial
 const Readline = SerialPort.parsers.Readline;
 const parser = new Readline({delimiter: '\n'});
-const mySerial = new SerialPort("COM3", {
+const mySerial = new SerialPort("COM5", {
     baudRate: 9600,
 });
 

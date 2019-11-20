@@ -55,6 +55,8 @@
             </div>
         </div>
     </body>
+
+    <script src="alertaseventos.js"></script>
 </html>
 
 <!--
@@ -64,4 +66,14 @@
         #0B3C5D;
         #1D2739;
 
+
+
+        const socketzinho = io();
+        var arr;
+
+        socketzinho.on('serial:data', function(dataSerial){
+            console.log(dataSerial);
+            arr = dataSerial.value.split(" ");
+                console.log(arr);
+        });
 -->

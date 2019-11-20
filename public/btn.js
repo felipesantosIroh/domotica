@@ -17,10 +17,38 @@ socket.on('serial:data', function(dataSerial){
         d = arr[6];
         e = arr[7];
         f = arr[8];
+        if (a == 0)
+            $("#luzSala").addClass("btn-warning").removeClass("btn-success");
+        else
+            $("#luzSala").addClass("btn-success").removeClass("btn-warning");
+        
+        if (b == 0)
+            $("#luzQuarto").addClass("btn-warning").removeClass("btn-success");
+        else
+            $("#luzQuarto").addClass("btn-success").removeClass("btn-warning");
+
+        if (c == 0)
+            $("#luzCozinha").addClass("btn-warning").removeClass("btn-success");
+        else
+            $("#luzCozinha").addClass("btn-success").removeClass("btn-warning");
+
+        if (d == 0)
+            $("#luzGaragem").addClass("btn-warning").removeClass("btn-success");
+        else
+            $("#luzGaragem").addClass("btn-success").removeClass("btn-warning");
+
+        if (e == 0)
+            $("#luzBanheiro").addClass("btn-warning").removeClass("btn-success");
+        else
+            $("#luzBanheiro").addClass("btn-success").removeClass("btn-warning");
+
+        if (f == 0)
+            $("#luzCorredor").addClass("btn-warning").removeClass("btn-success");
+        else
+            $("#luzCorredor").addClass("btn-success").removeClass("btn-warning");
 });
 
-
-
+    
 
 $("#luzSala").click(function(){
     const call = io();
