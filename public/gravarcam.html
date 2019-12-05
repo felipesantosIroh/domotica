@@ -28,13 +28,56 @@
         </div>
         <!-- Page Content -->
         <div class="main">
-            <ul style="list-style-type:none;">
-                <li><a href="gravarcam.html" target="_blank" title="Irá abrir uma nova aba para transmitir">Clique aqui para transmitir imagens</a></li>
-            </ul>
+            <h3>Transmitindo Camera 1</h3>
             <img id="play" height="500" width="500">
+            <canvas style="display: none;" id="quadroVideo">
+                <video id="video" height="450" width="450" autoplay="true"></video>    
+            </canvas>
         </div>
 
-        <script>
+        <script type="text/javascript">
+            var canvas = document.getElementById("quadroVideo");
+            var context = canvas.getContext("2d");
+
+            canvas.height = 800;
+            canvas.width = 600;
+
+            context.width = canvas.width;
+            context.height = canvas.height;
+
+            var video = document.getElementById("video");
+
+            var socket = io();
+
+            function viewVideo(video, context){
+                context.drawImage(video, 0, 0, context.width, context.height);
+                socket.emit('stream', canvas.toDataURL('image/webp'));
+            }
+
+            $(function(){
+                navigator.getUserMedia = navigator.getUserMedia ||
+                                navigator.webkitGetUserMedia ||
+                                navigator.mozGetUserMedia ||
+                                navigator.msGetUserMedia;
+
+                if(navigator.getUserMedia){
+                            navigator.getUserMedia({
+                            video: true,
+                            audio: false
+                        }, function (stream) {
+                            video.srcObject = stream;
+                            video.play();
+                            console.log("emitindo video");
+                        }, function(error){
+                            //error ocorreu
+                            console.log("Erro na camera");
+                        });
+                } 
+                setInterval(function(){
+                    viewVideo(video, context);
+                }, 100);
+            });
+
             var socket = io();
             socket.on('stream', function(image){
                 var img = document.getElementById("play");

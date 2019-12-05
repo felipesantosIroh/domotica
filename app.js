@@ -50,4 +50,9 @@ io.sockets.on('connection', function(socket){
         mySerial.write(dado_web);
         console.log('Enviando " ' + dado_web + ' " para serial');
     });
+
+    socket.on('stream', function(image){
+        io.emit('stream', image);
+        console.log('Transmitindo stream');
+    });
 });

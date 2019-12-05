@@ -47,6 +47,13 @@
   background: -webkit-linear-gradient(top, #8cdff1 20%, #36c7c7 100%);
 }
 
+.main a{
+  font-size: 25px;
+  font-weight: bold;
+  font-style: normal;
+  color: #1D2739;
+}
+
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
