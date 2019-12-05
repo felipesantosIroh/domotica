@@ -89,7 +89,7 @@ div.opDiv2 {
 }
 
 .btn-group {
-  padding-left: 20%;
+width: 100%;
 }
 
 #about {
@@ -102,11 +102,10 @@ div.opDiv2 {
 }
 
 #luzesWall img {
-  padding-left: 10%;
   max-width:1080px;
   max-height:768px;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 70%;
 }
 
 #quadroVideo {
