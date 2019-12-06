@@ -22,6 +22,7 @@ int d = 0;
 int e = 0;
 int f = 0;
 int valorSensorPIR = 0;
+int tom = 1500;
 
 DHT dht(DHTPIN, DHTTYPE);
 DHT dht2(DHTPIN2, DHTTYPE2);
@@ -56,6 +57,7 @@ void loop() {
   valorSensorPIR = digitalRead(PIR);
   //Verificando se ocorreu detecção de movimentos
   if (valorSensorPIR == 1) {
+    tom = 329;
     ligarAlarme();
   } else {
     desligarAlarme();
@@ -146,6 +148,7 @@ void loop() {
         }
 
        case 'p': //Ligar alarme sonoro
+          tom = 1500;
           ligarAlarme();
 
     }
@@ -160,7 +163,7 @@ void loop() {
 
 void ligarAlarme() {   
   //Ligando o buzzer com uma frequencia de 1500 hz.
-  tone(buzzer,1500); 
+  tone(buzzer, tom); 
   delay(2000); //tempo que o buzzer toca
    
   desligarAlarme();
